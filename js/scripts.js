@@ -100,5 +100,123 @@ $(document).ready(function(){
 			$(this).addClass('active').next('.js-tab-content').slideDown(200);
 		}
 	})
+
+
+    //button up scroll
+    $(".js-btn-up").click(function () {
+        $("html,body").animate({scrollTop: 0}, "slow");
+        return false;
+    })
+
+    //main-slider-box
+    $('.main-slider-box .slider').slick({
+        dots: true,
+        slidesToShow: 1,
+        variableWidth: false,
+        prevArrow: false,
+        nextArrow: false,
+        infinite: true,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 1,
+                    infinite: true,
+                    variableWidth: true,
+                    dots: true,
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1,
+                    infinite: true,
+                    variableWidth: true,
+                    dots: false,
+                }
+            },
+        ]
+    });
+
+    //catalog-slider-box
+    $('.catalog-slider-box:not(.slider-inner) .slider').slick({
+        dots: false,
+        slidesToShow: 6,
+        variableWidth: false,
+        prevArrow: '<span class="btn-action-ico button-nav ico-arrow ico-arrow-prev"></span>',
+        nextArrow: '<span class="btn-action-ico button-nav ico-arrow ico-arrow-next"></span>',
+        responsive: [
+            {
+                breakpoint: 1400,
+                settings: {
+                    slidesToShow: 5,
+                }
+            },
+            {
+                breakpoint: 1200,
+                settings: {
+                    slidesToShow: 4,
+                }
+            },
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 1,
+                    infinite: true,
+                    variableWidth: true,
+                    prevArrow: false,
+                    nextArrow: false,
+                }
+            },
+        ]
+    });
+
+    //catalog-slider-box
+    $('.catalog-slider-box.slider-inner .slider').slick({
+        dots: false,
+        slidesToShow: 4,
+        variableWidth: false,
+        prevArrow: '<span class="btn-action-ico button-nav ico-arrow ico-arrow-prev"></span>',
+        nextArrow: '<span class="btn-action-ico button-nav ico-arrow ico-arrow-next"></span>',
+        responsive: [
+            {
+                breakpoint: 1400,
+                settings: {
+                    slidesToShow: 3,
+                }
+            },
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 1,
+                    infinite: true,
+                    variableWidth: true,
+                    prevArrow: false,
+                    nextArrow: false,
+                }
+            },
+        ]
+    });
+
+    //services-slider-box
+    $('.services-slider-box .slider').slick({
+        dots: false,
+        slidesToShow: 6,
+        variableWidth: false,
+        infinite: false,
+        prevArrow: false,
+        nextArrow: false,
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1,
+                    infinite: true,
+                    variableWidth: true,
+                    dots: true
+                }
+            },
+        ]
+    });
 	
 });

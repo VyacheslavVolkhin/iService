@@ -100,11 +100,37 @@ $(document).ready(function(){
 			$(this).addClass('active').next('.js-tab-content').slideDown(200);
 		}
 	})
+    
+    //help
+    $('.elm-help[title]').tooltip();
+	
+	//text toggle
+    $('.js-text-toggle').on('click', function() {
+        $(this).parents('.text-toggle-box').toggleClass('active');
+        return false;
+    })
 
 
     //button up scroll
     $(".js-btn-up").click(function () {
         $("html,body").animate({scrollTop: 0}, "slow");
+        return false;
+    })
+
+    //btn tgl
+    $('.js-btn-tgl').on('click', function () {
+        $(this).toggleClass('active');
+        return false;
+    })
+    
+    
+    //filter toggle
+    $('.js-filter-open').on('click', function() {
+        $('.wrap').addClass('filter-showed');
+        return false;
+    })
+    $('.js-filter-close').on('click', function() {
+        $('.wrap').removeClass('filter-showed');
         return false;
     })
 
@@ -218,5 +244,80 @@ $(document).ready(function(){
             },
         ]
     });
+
+
+    //card slider
+    $('.photos-slider-box .slider-wrap .slider').slick({
+        dots: false,
+        slidesToShow: 1,
+        infinite: false,
+        prevArrow: false,
+        nextArrow: false,
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    dots: true,
+                }
+            },
+        ]
+    });
+    $('.photos-slider-box .slider-preview-wrap .slider').slick({
+        dots: false,
+        slidesToShow: 4,
+        vertical: false,
+        infinite: true,
+        prevArrow: '<span class="btn-action-ico ico-arrow ico-arrow-prev"></span>',
+        nextArrow: '<span class="btn-action-ico ico-arrow ico-arrow-next"></span>',
+    });
+    $('.photos-slider-box .slider-preview-wrap .slider .item-photo').click(function () {
+        let newSlide = $(this).attr('data-slide');
+        $('.photos-slider-box .slider-wrap .slider').slick('slickGoTo', newSlide);
+        return false;
+    })
+    
+    
+    //range slider
+    $('#range-slider').slider({
+        range: true,
+        min: 0,
+        max: 120000,
+        values: [0, 70000],
+        slide: function (event, ui) {
+            $('#range-min').val(ui.values[0]);
+            $('#range-max').val(ui.values[1]);
+        }
+    })
+    $('#range-min').val($('#range-slider').slider('values', 0));
+    $('#range-max').val($('#range-slider').slider('values', 1));
+    $('#range-min').bind('focusout', function () {
+        if ($(this).val() > $('#range-slider').slider('values', 1)) {
+            $(this).val($('#range-slider').slider('values', 0));
+        }
+        $('#range-slider').slider('values', 0, $(this).val());
+    })
+    $('#range-max').bind('focusout', function () {
+        if ($(this).val() < $('#range-slider').slider('values', 0)) {
+            $(this).val($('#range-slider').slider('values', 1));
+        }
+        $('#range-slider').slider('values', 1, $(this).val());
+    })
+    $('#range-min').bind('keypress', function (e) {
+        if (e.keyCode == 13) {
+            if ($(this).val() > $('#range-slider').slider('values', 1)) {
+                $(this).val($('#range-slider').slider('values', 0));
+            }
+            $('#range-slider').slider('values', 0, $(this).val());
+        }
+    })
+    $('#range-max').bind('keypress', function (e) {
+        if (e.keyCode == 13) {
+            if ($(this).val() < $('#range-slider').slider('values', 0)) {
+                $(this).val($('#range-slider').slider('values', 1));
+            }
+            $('#range-slider').slider('values', 1, $(this).val());
+        }
+    })
+    $('#widget').draggable();
 	
 });

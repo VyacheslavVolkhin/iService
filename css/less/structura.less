@@ -20,7 +20,7 @@ html {
 	margin: 0 auto;
 	padding: 0 15px;
 	min-width: var(--min, 320px);
-	max-width: var(--max, 1200px);
+	max-width: var(--max, 1430px);
 	width: 100%;
 	.inner-wrap {
 		min-width: 0;
@@ -55,6 +55,18 @@ html {
 	&>.cnt-section {
 		flex-shrink: 0;
 	}
+    &:after {
+        content: "";
+        display: none;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 110;
+        background: fade(#000, 80);
+        animation: fadein ease 0.2s;
+    }
 }
 .nav,
 .header,
@@ -436,6 +448,13 @@ html {
     }
 }
 @media (max-width: 767px) {
+    .wrap {
+        &.filter-showed {
+            &:after {
+                display: block;
+            }
+        }
+    }
     .footer-bottom-panel {
         padding-bottom: 20px;
         .copy-wrap {

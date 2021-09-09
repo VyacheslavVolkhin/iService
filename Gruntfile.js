@@ -20,6 +20,7 @@ module.exports = function (grunt) {
                         footer: '<%= fixturesPath %>/**/footer.html',
                         footerorder: '<%= fixturesPath %>/**/footerorder.html',
                         sbs: '<%= fixturesPath %>/**/sbs.html',
+                        popups: '<%= fixturesPath %>/**/popups.html',
                     },
                     data: {
                         version: "0.1.0",

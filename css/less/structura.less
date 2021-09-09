@@ -87,6 +87,13 @@ html {
 		transition: all ease 0.2s;
 	}
 }
+.header-location-active {
+    .header {
+        .location-popup-wrap {
+            display: block;
+        }
+    }
+}
 .header {
     z-index: 100;
 }
@@ -101,6 +108,7 @@ html {
         align-items: center;
     }
     .location-wrap {
+        position: relative;
         padding-right: 15px;
     }
     .address-wrap {
@@ -112,6 +120,60 @@ html {
         padding-left: 15px;
         flex-shrink: 0;
         white-space: nowrap;
+    }
+    .location-popup-wrap {
+        display: none;
+        animation: fadein ease 0.2s;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 30;
+        background: #fff;
+        width: 312px;
+        border-radius: 10px;
+        filter: drop-shadow(-6px 7px 46px rgba(0, 0, 0, 0.14));
+        padding: 20px 22px 6px 22px;
+        margin-top: 30px;
+        &:before {
+            content: "";
+            display: block;
+            position: absolute;
+            left: 40px;
+            bottom: 100%;
+            border: 8px solid fade(#000, 0);
+            border-bottom-color: #fff;
+        }
+        .popup-title {
+            display: block;
+            font-size: 20px;
+            line-height: 24px;
+            font-weight: 400;
+            margin: 0 0 25px 0;
+        }
+        .popup-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -10px 0 0;
+            .btn,
+            button,
+            input[type="submit"] {
+                height: 40px;
+                min-width: 110px;
+                padding: 0 14px;
+                font-size: 15px;
+                text-transform: none;
+                border-radius: 8px;
+                display: flex;
+                color: #fff;
+                margin: 0 10px 10px 0;
+                &.button-border {
+                    color: #A5A6C7;
+                    &:hover {
+                        color: #fff;
+                    }
+                }
+            }
+        }
     }
     .menu-wrap {
         flex: 1;

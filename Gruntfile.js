@@ -18,6 +18,7 @@ module.exports = function (grunt) {
                         head: '<%= fixturesPath %>/**/head.html',
                         header: '<%= fixturesPath %>/**/header.html',
                         footer: '<%= fixturesPath %>/**/footer.html',
+                        footerorder: '<%= fixturesPath %>/**/footerorder.html',
                         sbs: '<%= fixturesPath %>/**/sbs.html',
                     },
                     data: {
@@ -25,6 +26,16 @@ module.exports = function (grunt) {
                         title: "test",
                     },
                 }
+            }
+        },
+
+        css_datauri: {
+            build: {
+                options: {
+                    exclude: ['*.svg']
+                },
+                src: 'css/style.css',
+                dest: 'css/styleURI.css'
             }
         },
 
@@ -148,11 +159,15 @@ module.exports = function (grunt) {
                     nospawn: true
                 }
             },
+            // css: {
+            //     files: ['css/style.css'],
+            //     tasks: 'css_datauri'
+            // },
         }
     });
 
     require('load-grunt-tasks')(grunt);
     require('postcss-plugin')({});
 
-    grunt.registerTask('default', ['watch'], ['less'], ['sprite'],  ['htmlbuild'], ['postcss'], ['imagemin']);
+    grunt.registerTask('default', ['watch'], ["css_datauri"], ['less'], ['sprite'],  ['htmlbuild'], ['postcss'], ['imagemin']);
 };

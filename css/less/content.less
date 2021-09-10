@@ -1620,6 +1620,7 @@
                 display: flex;
             }
         }
+        &.menu-show,
         &.lk-menu-active,
         &.fancybox-active {
             overflow: hidden;
@@ -1648,6 +1649,13 @@
                 z-index: 99;
                 border-top: none;
                 padding-top: 1px;
+            }
+        }
+        &.menu-show {
+            .header {
+                .search-wrap {
+                    display: block;
+                }
             }
         }
     }

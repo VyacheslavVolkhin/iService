@@ -28,7 +28,7 @@ $(document).ready(function(){
 		} else {
 			$('.js-popup-wrap:not(.no-close) .js-btn-toggle').removeClass('active');
 			$(this).addClass('active');
-			if ($(this).parent().hasClass('main-menu-wrap')) {
+			if ($(this).parent().hasClass('main-catalog-wrap')) {
 				$('body').addClass('menu-show');
 			}
 		}
@@ -72,6 +72,54 @@ $(document).ready(function(){
 		$(this).parents('.js-popup-wrap').find('.js-btn-toggle').removeClass('active');
 		return false;
 	})
+
+
+    //mobile catalog menu
+    $('.btn-catalog-back').on('click', function() {
+        $('.main-catalog-wrap .catalog-submenu-active').removeClass('catalog-submenu-active');
+        $('body').removeClass('catalog-submenu-active');
+        return false;
+    })
+    $('.btn-catalog-close').on('click', function() {
+        $('.main-catalog-wrap .catalog-submenu-active').removeClass('catalog-submenu-active');
+        $('body').removeClass('catalog-submenu-active');
+        $('body').removeClass('catalog-active');
+        $('body').removeClass('menu-show');
+        return false;
+    })
+    $('.btn-catalog-open').on('click', function() {
+        $('body').addClass('catalog-active');
+        $('body').addClass('menu-show');
+        return false;
+    })
+    $('.main-catalog-wrap li').each(function() {
+        if ($(this).children('ul').length>0) {
+            $(this).addClass('submenu');
+        }
+    })
+    $('.main-catalog-wrap .btn-catalog-toggle').on('click', function() {
+        if ($('body').hasClass('catalog-active')) {
+            $('body').removeClass('catalog-active');
+        } else {
+            $('body').addClass('catalog-active');
+        }
+        return false;
+    })
+    $('.main-catalog-wrap .catalog-menu-wrap>ul>li>a').on('click', function() {
+        if ($(window).innerWidth() < 768) {
+            if ($(this).next('ul').length>0) {
+                $(this).parent('li').addClass('catalog-submenu-active');
+                $('body').addClass('catalog-submenu-active');
+                return false;
+            }
+        }
+    })
+    $('.main-catalog-wrap .catalog-menu-wrap>ul>li>ul>li>a').on('click', function() {
+        if ($(this).next('ul').length>0) {
+            $(this).parent().toggleClass('open');
+            return false;
+        }
+    })
 
 	//tabs
 	$('.js-tabs-nav').each(function() {

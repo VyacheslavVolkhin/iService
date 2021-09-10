@@ -2236,7 +2236,7 @@ iframe {
 }
 .item-catalog .cat-stickers-wrap {
   position: absolute;
-  height: 23px;
+  height: 28px;
   overflow: hidden;
   top: 0;
   left: 0;
@@ -2249,6 +2249,7 @@ iframe {
           align-items: flex-start;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  padding: 5px 0 0 5px;
 }
 .item-catalog .cat-photo-wrap {
   display: block;
@@ -2363,6 +2364,10 @@ iframe {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
   padding: 0 8px;
   height: 23px;
   border-radius: 12px;
@@ -2388,11 +2393,15 @@ iframe {
   display: block;
   line-height: 1;
   margin: 0 5px 0 0;
+  text-align: center;
 }
 .elm-sticker .st-ico img {
   display: block;
   max-width: 14px;
   max-height: 14px;
+}
+.elm-sticker .st-ico:last-child {
+  margin: 0;
 }
 .elm-count {
   display: block;
@@ -2470,6 +2479,10 @@ iframe {
   max-height: 100%;
 }
 @media (max-width: 1023px) {
+  .item-catalog .cat-stickers-wrap {
+    padding: 0;
+    height: 23px;
+  }
   .item-cart {
     padding: 20px 20px 20px 120px;
     overflow: hidden;

@@ -2761,6 +2761,15 @@
     }
 }
 @media (min-width: 1024px) {
+    .fixed-active {
+        .js-fixed-box {
+            position: fixed;
+            z-index: 999;
+            background: #fff;
+            width: 335px;
+            top: 20px;
+        }
+    }
     .compare-slider-box {
         .tbl-inner-wrap {
             margin: 0 -30px;
@@ -3077,6 +3086,12 @@
     .card-info-wrap {
         .section-features {
             display: block;
+        }
+    }
+    .card-info-wrap .section-features table td, .card-info-wrap .section-features table th {
+        &:first-child {
+            max-width: 190px;
+            width: 190px;
         }
     }
     .card-title-wrap {

@@ -2236,7 +2236,7 @@ iframe {
 }
 .item-catalog .cat-stickers-wrap {
   position: absolute;
-  height: 28px;
+  height: 38px;
   overflow: hidden;
   top: 0;
   left: 0;
@@ -2249,7 +2249,7 @@ iframe {
           align-items: flex-start;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  padding: 5px 0 0 5px;
+  padding: 15px 0 0 12px;
 }
 .item-catalog .cat-photo-wrap {
   display: block;
@@ -2645,7 +2645,7 @@ iframe {
     left: 32px;
   }
   .item-catalog {
-    padding-top: 30px;
+    padding-top: 40px;
     line-height: 1.4;
   }
   .item-catalog.type-compare {
@@ -5954,6 +5954,13 @@ iframe {
   }
 }
 @media (min-width: 1024px) {
+  .fixed-active .js-fixed-box {
+    position: fixed;
+    z-index: 999;
+    background: #fff;
+    width: 335px;
+    top: 20px;
+  }
   .compare-slider-box .tbl-inner-wrap {
     margin: 0 -30px;
     padding-left: 30px;
@@ -6305,6 +6312,11 @@ iframe {
   }
   .card-info-wrap .section-features {
     display: block;
+  }
+  .card-info-wrap .section-features table td:first-child,
+  .card-info-wrap .section-features table th:first-child {
+    max-width: 190px;
+    width: 190px;
   }
   .card-title-wrap {
     margin-bottom: 48px;

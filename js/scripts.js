@@ -121,6 +121,20 @@ $(document).ready(function(){
         }
     })
 
+
+    if (!!$('.js-fixed-box').offset()) {
+        var stickyTop = $('.js-fixed-box').offset().top;
+        $(window).scroll(function () {
+            var windowTop = $(window).scrollTop() + 20;
+            if (stickyTop < windowTop) {
+                $('.wrap').addClass('fixed-active');
+            } else {
+                $('.wrap').removeClass('fixed-active');
+            }
+        });
+    }
+    
+    
 	//tabs
 	$('.js-tabs-nav').each(function() {
 		$('.js-tab-block[data-tab*="'+$(this).find('.active').attr('data-tab')+'"]').addClass('active');

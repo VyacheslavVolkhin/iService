@@ -3122,6 +3122,19 @@
         }
     }
     .catalog-box {
+        overflow: visible;
+        position: relative;
+        &:after {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            bottom: 0;
+            background: #fff;
+            width: 999px;
+            margin-left: 5px;
+        }
         .items-wrap {
             margin: 0 -15px;
         }
@@ -3130,6 +3143,14 @@
             padding-right: 15px;
             &:before {
                 left: 15px;
+            }
+        }
+        .item-catalog {
+            z-index: 10;
+            &.type-second {
+                &:hover {
+                    box-shadow: 0px 10px 34px rgba(0, 0, 0, 0.1);
+                }
             }
         }
     }

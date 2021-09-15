@@ -6341,6 +6341,21 @@ iframe {
     left: auto;
     right: -35px;
   }
+  .catalog-box {
+    overflow: visible;
+    position: relative;
+  }
+  .catalog-box:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    bottom: 0;
+    background: #fff;
+    width: 999px;
+    margin-left: 5px;
+  }
   .catalog-box .items-wrap {
     margin: 0 -15px;
   }
@@ -6350,6 +6365,13 @@ iframe {
   }
   .catalog-box .item-wrap:before {
     left: 15px;
+  }
+  .catalog-box .item-catalog {
+    z-index: 10;
+  }
+  .catalog-box .item-catalog.type-second:hover {
+    -webkit-box-shadow: 0px 10px 34px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 10px 34px rgba(0, 0, 0, 0.1);
   }
   .main-filter-box .filter-section-total.active {
     display: block;

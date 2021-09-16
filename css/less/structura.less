@@ -614,6 +614,26 @@ html {
             }
         }
     }
+    .no-order-footer {
+        .footer {
+            padding-bottom: 64px;
+        }
+        .footer-mobile-panel {
+            .cart-wrap {
+                display: none;
+            }
+        }
+    }
+    .footer {
+        padding-bottom: 149px;
+    }
+    .footer-mobile-panel {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+    }
     .footer-bottom-panel {
         padding-bottom: 20px;
         .copy-wrap {
@@ -1092,6 +1112,27 @@ html {
         ul, li {
             position: static;
         }
+    }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+    .no-order-footer,
+    .submit-mobile-footer {
+        .footer {
+            padding-bottom: 0;
+        }
+        .footer-mobile-panel {
+            display: none;
+        }
+    }
+    .footer {
+        padding-bottom: 100px;
+    }
+    .footer-mobile-panel {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
     }
 }
 @media (min-width: 1024px) {

@@ -328,7 +328,7 @@
     }
     &.outstock {
         &:before {
-            background: #f00;
+            background: #FF132B;
         }
     }
 }
@@ -537,6 +537,21 @@
     font-weight: 400;
     border-radius: 10px;
     padding-top: 38px;
+    &.type-out {
+        .cat-photo {
+            &:after {
+                content: "";
+                display: block;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                z-index: 2;
+                background: fade(#fff, 58);
+            }
+        }
+    }
     &.type-no-stickers {
         padding-top: 15px;
     }
@@ -1217,6 +1232,11 @@
                 }
                 &:before {
                     display: none;
+                }
+                &.button-notify-ico {
+                    .button-title {
+                        padding: 0 10px;
+                    }
                 }
             }
             .btn-action-ico {
